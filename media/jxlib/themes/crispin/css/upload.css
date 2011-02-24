@@ -1,0 +1,76 @@
+/* FileUploadPanel */
+.jxFileUploadPanel {
+    padding: 5px;
+}
+
+.jxFileUploadPanel .jxInputContainer {
+    /*width: 300px;*/
+}
+ 
+.jxUploadQueue {
+    /*width: 100%;*/  
+    /*margin-top: 10px;*/  
+}
+
+.jxUploadQueue li {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    /*width: 95%;*/
+    /*clear: both;*/
+    /*border-top: 1px solid black;*/
+    padding: 2px;
+}
+
+.jxUploadQueue div span {
+    display: block;
+}
+
+.jxUploadQueue li span.jxUploadFileName {
+    /*float: left;*/
+    font-size: 12px;
+    line-height: 16px;
+    padding-left: 2px;
+}
+
+.jxUploadQueue li span.jxUploadFileDelete,
+.jxUploadQueue li span.jxUploadFileProgress,
+.jxUploadQueue li span.jxUploadFileComplete,
+.jxUploadQueue li span.jxUploadFileError {
+    /*float: right;*/
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.jxUploadQueue li span.jxUploadFileDelete {
+    background-image: url('images/icons.png');
+    background-position: 0px -128px;
+}
+
+.jxUploadQueue li span.jxUploadFileProgress {
+    background-image: url('images/spinner_16.gif');
+    background-position: top left;
+}
+
+.jxUploadQueue li span.jxUploadFileComplete {
+    background-image: url('images/icons.png');
+    background-position: 0px -48px;
+}
+
+.jxUploadQueue li span.jxUploadFileError {
+    background-image: url('images/icons.png');
+    background-position: 0px -32px;
+}
+
+.jxUploadFileErrorTip {
+  padding: 4px 4px 4px 20px; 
+  border: 2px solid #ddd;
+  background: url("images/icons.png") no-repeat 0px -32px;
+  color: black;
+  width: 100px;
+}

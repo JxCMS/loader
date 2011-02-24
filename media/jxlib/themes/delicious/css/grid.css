@@ -1,0 +1,256 @@
+/**
+ * @project         Jx
+ * @revision        $Id: grid.css 796 2010-03-26 19:56:43Z pagameba $
+ * @author          Fred Warnock (fwarnock@dmsolutions.ca)
+ * @copyright       (c) 2006 DM Solutions Group Inc.
+ */
+
+/* ============= */
+/* GRID STYLES */
+/* ============= */
+
+.jxGridContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 0px solid #d8d8d8;
+    border-top: 0px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    overflow: hidden;
+}
+
+.jxGridTable {
+    width: 100%;
+    position: relative;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-style: none;
+
+    cursor: default;
+}
+
+.jxGridTableBody {
+    position: relative;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-style: none;
+   /* width: 100%;*/
+    cursor: default;
+}
+
+.jxGridCell {
+    border-top: 0px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    border-left: 0px solid #d8d8d8;
+    overflow: hidden;
+}
+
+.jxGridCellContent {
+    position: relative;
+    display: -moz-inline-box;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0px 3px;
+    overflow: hidden;
+    vertical-align: middle;
+    
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 16px;
+    
+    /* can change this to normal */
+    white-space: nowrap;
+    cursor: cell;
+    /* only applies in IE and Safari right now */
+    text-overflow: ellipsis;
+}
+
+.jxGridColHead .jxGridCellContent {
+    padding: 0px 3px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    height: 100%;
+}
+
+.jxGridRowHead .jxGridCellContent {
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+/* Normal Styles */
+
+.jxGridColHead {
+    height: 100%;
+  
+    border-top: 0px solid  #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    border-left: 0px solid  #d8d8d8;
+    background-color: #f2f2f2;
+    background-image: url('images/table_col.png');
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+
+    text-align: center;
+    cursor: default;
+    padding: 0px;
+    white-space: nowrap;
+    
+    overflow: hidden;
+}
+
+.jxGridRowHead {
+    border-top: 0px solid  #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    border-left: 0px solid  #d8d8d8;
+    background-color:  #f2f2f2;
+    background-image: url('images/table_row.png');
+    background-position: 0px 0px;
+    background-repeat: repeat-y;
+
+    text-align: center;
+    cursor: default;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Alternating Row Styles */
+
+.jxGridRowAll {
+    background-color: #fff;
+}
+
+.jxGridRowOdd {}
+.jxGridRowEven {}
+.jxGridRowOdd td {}
+.jxGridRowEven td {}
+
+/* Selected Styles */
+
+.jxGridColumnHeaderSelected {
+    background-color: #e1e1e1;
+    background-position: 0px -200px;
+}
+
+.jxGridRowHeaderSelected {
+    background-color: #e1e1e1;
+    background-position: -400px 0px;
+}
+
+.jxGridColumnSelected {
+    background-color: #f7f7f7;
+}
+
+.jxGridRowSelected td,
+.jxGridRowSelected th {
+    background-color: #f7f7f7;
+}
+
+td.jxGridCellSelected,
+th.jxGridCellSelected {
+    background-color: #ebebeb;
+}
+
+/* Prelight Styles */
+
+.jxGridColumnHeaderPrelight {
+    background-color: #cee5ff;
+    background-position: 0px -300px;
+}
+
+.jxGridRowHeaderPrelight {
+    background-color: #cee5ff;
+    background-position: -600px 0px;
+}
+
+.jxGridColumnPrelight {
+    background-color: #e5f1ff;
+}
+
+.jxGridRowPrelight td,
+.jxGridRowPrelight th {
+    background-color: #e5f1ff;
+}
+
+td.jxGridCellPrelight,
+th.jxGridCellPrelight {
+  background-color: #cce3ff;
+}
+
+.jxGridHeader .jxColSortable img {
+    vertical-align: top;
+    width: 16px;
+    height: 16px;
+    background-image: url('images/emblems.png');
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.jxGridHeader .jxColSortable .jxGridCellContent {
+  margin-right: -16px; /* recenter the column heading text */
+}
+ 
+.jxGridHeader .jxGridColumnSortedAsc img {
+    background-position: right -162px;
+}
+ 
+.jxGridHeader .jxGridColumnSortedDesc img {
+    background-position: right -18px;
+}
+ 
+.jxGridColumnResize,
+.jxGridRowResize {
+    display: block;
+    position: absolute;
+    background-image: url(images/a_pixel.png);
+    z-index: 1;
+    
+}
+.jxGridColumnResize {
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 4px;
+    cursor: col-resize;
+}
+
+.jxColSortable .jxGridColumnResize {
+  right: 8px;
+}
+
+.jxGridRowResize {
+    left: 0px;
+    bottom: 0px;
+    height: 4px;
+    width: 100%;
+    cursor: row-resize;
+}
+
+/* Editor Styles */
+.jxGridEditorPopup {
+  min-width: 130px;
+  margin: 3px;
+  font-size: 10px;
+  box-shadow: 2px 2px 5px #888; /* i really like the boxshadow */
+  -moz-box-shadow : 2px 2px 5px #888;
+  -webkit-box-shadow : 2px 2px 5px #888;
+  /*
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  */
+  background-color: #dddddd;
+  border: 1px solid #999999;
+  position: absolute;
+}
+
+.jxGridEditorPopupInnerWrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}

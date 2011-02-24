@@ -1,0 +1,101 @@
+/* For Reference
+   Success, notice and error boxes from Blueprint */
+
+/* 
+.error      { background: #FBE3E4; color: #8a1f11; border-color: #FBC2C4; }
+.notice     { background: #FFF6BF; color: #514721; border-color: #FFD324; }
+.success    { background: #E6EFC2; color: #264409; border-color: #C6D880; }
+.error a    { color: #8a1f11; }
+.notice a   { color: #514721; }
+.success a  { color: #264409; }
+*/
+
+
+.jxNoticeListContainer {
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  font-size: 0px;
+  line-height: 0px;
+  z-index: 500;
+}
+
+.jxNoticeList {
+    position: relative;
+}
+
+.jxNoticeItemContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.jxNoticeItemContainer .jxChrome {
+  background-image: url(images/flyout_chrome.png);
+  padding: 5px 5px 7px 6px;
+}
+
+.jxHasChrome .jxNoticeItem  {
+  margin: 6px 6px 8px 7px;
+}
+
+.jxNoticeItem {
+    position: relative;
+    border: 2px solid #ccc;
+    margin: 0px;
+    padding: 0px;
+    background-color: #f8f8f8;
+    background-image: url(images/notice.png);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+}
+
+.jxNoticeIcon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 6px;
+  width: 16px;
+  height: 16px;
+  background-image: url(images/icons.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+}
+
+.jxNotice {
+    display: block;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    color: #666;
+    margin: 0px;
+    border: none;
+    padding: 6px 26px 6px 10px; 
+}                          
+
+.jxNoticeError .jxNoticeItem { background-color: #FBE3E4; color: #8a1f11; border-color: #FBC2C4; background-image: url(images/notice_error.png);}
+.jxNoticeWarning .jxNoticeItem { background-color: #FFF6BF; color: #514721; border-color: #FFD324; background-image: url(images/notice_warning.png);}
+.jxNoticeSuccess .jxNoticeItem { background-color: #E6EFC2; color: #264409; border-color: #C6D880; background-image: url(images/notice_success.png);}
+.jxNoticeInformation .jxNoticeItem { background-color: #F8F8F8; color: #666666; border-color: #CCCCCC; background-image: url(images/notice.png);}
+
+.jxNoticeError .jxNotice { color: #8a1f11; padding-left: 28px; }
+.jxNoticeWarning .jxNotice { color: #514721; padding-left: 28px; }
+.jxNoticeSuccess .jxNotice { color: #264409; padding-left: 28px; }
+.jxNoticeInformation .jxNotice { color: #666666; padding-left: 28px; }
+
+.jxNoticeError .jxNoticeIcon { background-position: 0px -32px; }
+.jxNoticeWarning .jxNoticeIcon { background-position: 0px -16px; }
+.jxNoticeSuccess .jxNoticeIcon { background-position: 0px -48px; }            
+.jxNoticeInformation .jxNoticeIcon { background-position: 0px -64px; }
+
+.jxNoticeClose {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 6px;
+    width: 16px;
+    height: 16px;
+    background-image: url(images/tab_close.png);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+}
