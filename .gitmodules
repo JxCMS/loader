@@ -1,0 +1,12 @@
+[submodule "media/more"]
+	path = media/more
+	url = https://github.com/mootools/mootools-more.git
+[submodule "media/core"]
+	path = media/core
+	url = https://github.com/mootools/mootools-core.git
+[submodule "media/jxlib"]
+	path = media/jxlib
+	url = git@github.com:jonlb/JxLib.git
+[submodule "media/jxlib-extensions"]
+	path = media/jxlib-extensions
+	url = git@github.com:jonlb/jxlib-extensions.git
