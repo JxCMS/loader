@@ -13,3 +13,6 @@
 [submodule "vendor/jxLoader"]
 	path = vendor/jxLoader
 	url = git@github.com:jonlb/node-jxLoader.git
+[submodule "vendor/jsmin"]
+	path = vendor/jsmin
+	url = https://github.com/pkrumins/node-jsmin.git
