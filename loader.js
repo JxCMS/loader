@@ -8,8 +8,7 @@
 /**
  * Dependencies
  */
-var jxLoader = require('./jxLoader'),
-    routes = require('./controllers/loader').routes;
+var routes = require('./controllers/loader').routes;
 
 //use a closure so we don't pollute the global namespace
 (function(){
