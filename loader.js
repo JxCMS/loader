@@ -8,7 +8,11 @@
 /**
  * Dependencies
  */
-var routes = require('./controllers/loader').routes;
+var routes = require('./controllers/loader').routes,
+    jxLoader = require('jxLoader/jxLoader'),
+    baseConfig = require('./configs/base'),
+    repoConfig = require('./configs/repos'),
+    loader = null;
 
 //use a closure so we don't pollute the global namespace
 (function(){
@@ -18,6 +22,10 @@ exports.init = function(db, router){
     //load and intialize the loader controller
     //setup routing
     router.add(routes);
+
+    //load and configure the loader itself
+    loader = new jxLoader(baseConfig);
+    loader.add(repoConfig);
     return true;
 };
 
@@ -25,21 +33,25 @@ exports.init = function(db, router){
 //also needs an activate method - used to activate the module after installation
 exports.activate = function(){
 
-}
+};
 
 //and a deactivate method - removes anything we added to make the module not work anymore
 exports.deactivate = function(){
 
     //call deinit
     deinit();
-}
+};
+
+exports.addRepo = function(config) {
+    loader.add(config);
+};
 
 /**
  * deinit undoes any initialization  (specifically the routing)
  */
 function deinit() {
 
-}
+};
 
 /**
  * From here down are specific functions that this module will need

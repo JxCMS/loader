@@ -6,7 +6,7 @@
  * Dependencies
  */
 
-var Controller_Main = require('controller').Controller_Main,
+var Controller_Main = require('../../../system/controller').Controller_Main,
     Promise = require('promise').Promise;
 
 
