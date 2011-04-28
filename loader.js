@@ -9,23 +9,31 @@
  * Dependencies
  */
 var routes = require('./controllers/loader').routes,
-    jxLoader = require('jxLoader/jxLoader'),
-    baseConfig = require('./configs/base'),
-    repoConfig = require('./configs/repos'),
-    loader = null;
+    controller = require('./controllers/loader').controller,
+    jxLoader = require('jxLoader/jxLoader').jxLoader,
+    baseConfig = require('./configs/base').config,
+    repoConfig = require('./configs/repos').config,
+    loader = {};
 
 //use a closure so we don't pollute the global namespace
 (function(){
 
 //needs to have an init() method for setting up the module
-exports.init = function(db, router){
-    //load and intialize the loader controller
+exports.init = function(db, router, domain){
+
     //setup routing
     router.add(routes);
 
+    core.debug('baseConfig for ' + domain, baseConfig);
+    core.debug('repoConfig for ' + domain, repoConfig);
     //load and configure the loader itself
-    loader = new jxLoader(baseConfig);
-    loader.add(repoConfig);
+    loader[domain] = new jxLoader(baseConfig);
+    loader[domain].addRepository(repoConfig);
+
+    core.debug('loader object after init',loader);
+
+    //initialize the loader controller
+    controller.setModule(exports);
     return true;
 };
 
@@ -42,10 +50,20 @@ exports.deactivate = function(){
     deinit();
 };
 
-exports.addRepo = function(config) {
-    loader.add(config);
+exports.addRepository = function(config, domain) {
+    loader[domain].addRepository(config, domain);
 };
 
+
+exports.getLoader = function (domain) {
+    core.log('domain passed = ' + domain);
+    core.debug('loader object in getLoader', loader);
+    if (!nil(loader[domain])){
+        return loader[domain];
+    } else {
+        return false;
+    }
+}
 /**
  * deinit undoes any initialization  (specifically the routing)
  */

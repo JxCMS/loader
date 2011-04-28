@@ -1,6 +1,6 @@
 
-exports = {
-    'moveImagesRelativeToLoader': true,
-    'imagePath': 'images',
+exports.config = {
+    'moveImages': true,
+    'imagePath': '/media/',
     'rewriteImageUrl': true
 };

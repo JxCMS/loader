@@ -1,24 +1,35 @@
+var fs = require('fs');
 
-exports = {
+var jxLibPath = fs.realpathSync(__dirname + '/../media/jxlib/src');
+core.debug('jxLibPath', jxLibPath);
+exports.config = {
     'core': {
         'imageUrl': 'images/',
+        'imageLocation': fs.realpathSync(__dirname + '/../media/images/'),
         'paths': {
-            'js': 'core/Source'
+            'js': fs.realpathSync(__dirname + '/../media/core/Source')
         }
     },
     'more': {
         'imageUrl': 'images/',
+        'imageLocation': fs.realpathSync(__dirname + '/../media/images/'),
         'paths': {
-            'js': 'more/Source'
+            'js': fs.realpathSync(__dirname + '/../media/more/Source')
         }
     },
     'jxlib': {
         'imageUrl': 'images/',
+        'imageLocation': fs.realpathSync(__dirname + '/../media/images/'),
         'paths': {
-            'js': 'jxlib/Source',
-            'css': 'jxlib/themes/{theme}/css',
-            'cssalt': 'jxlib/themes/{theme}',
-            'images': 'jxlib/themes/{theme}/images'
+            'js': jxLibPath + '/Source',
+            'css': jxLibPath + '/themes/{theme}/css',
+            'cssalt': jxLibPath + '/themes/{theme}',
+            'images': jxLibPath + '/themes/{theme}/images'
+        }
+    },
+    'loader': {
+        'paths': {
+            'js': fs.realpathSync(__dirname + '/../media/loader/js')
         }
     }
-}
+};

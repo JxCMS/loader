@@ -10,9 +10,9 @@
 [submodule "media/jxlib-extensions"]
 	path = media/jxlib-extensions
 	url = git@github.com:jonlb/jxlib-extensions.git
-[submodule "vendor/jxLoader"]
-	path = vendor/jxLoader
+[submodule "node_modules/jxLoader"]
+	path = node_modules/jxLoader
 	url = git@github.com:jonlb/node-jxLoader.git
-[submodule "vendor/jsmin"]
-	path = vendor/jsmin
+[submodule "node_modules/jsmin"]
+	path = node_modules/jsmin
 	url = https://github.com/pkrumins/node-jsmin.git
