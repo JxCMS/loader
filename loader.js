@@ -9,7 +9,7 @@
  * Dependencies
  */
 var routes = require('./controllers/loader').routes,
-    controller = require('./controllers/loader').controller,
+    controller = require('./controllers/loader').Controller,
     jxLoader = require('jxLoader/jxLoader').jxLoader,
     baseConfig = require('./configs/base').config,
     repoConfig = require('./configs/repos').config,
