@@ -35,7 +35,8 @@ require('../models/loaderCache.model');
         },
 
         index_action: function(request, response) {
-            var promise = new Promise();
+            var promise = new Promise(),
+                view = response.view;
             
             //grab all needed variables
 
@@ -157,8 +158,8 @@ require('../models/loaderCache.model');
                             },this)
                             //send back as json... this would have been called to get deps by loader.js
 
-                            this.view.set('deps', d);
-                            this.view.set('key', key);
+                            view.set('deps', d);
+                            view.set('key', key);
                             doc.set('data', JSON.stringify(deps));
                             doc.set('key', dbkey);
                             core.debug('Data saved after compile in loader',doc.data);
@@ -174,7 +175,7 @@ require('../models/loaderCache.model');
                                 core.debug('Data saved after compile in loader',doc.data);
                                 doc.save();
                                 
-                                this.view.set('content',source);
+                                view.set('content',source);
                                 response.contentType(type);
                             }
                         }
@@ -217,8 +218,8 @@ require('../models/loaderCache.model');
                             }
                         }
 
-                        this.view.set('content', source);
-                        this.view.setFileType(type);
+                        view.set('content', source);
+                        view.setFileType(type);
 
                     }
                     promise.resolve('true');
@@ -240,7 +241,5 @@ require('../models/loaderCache.model');
     exports.routes = [
         ['loader','GET /loader', null, Controller,{action: 'index'}]
     ];
-
-    exports.controller = Controller;
 
 })();

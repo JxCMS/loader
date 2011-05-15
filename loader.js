@@ -9,10 +9,12 @@
  * Dependencies
  */
 var routes = require('./controllers/loader').routes,
-    controller = require('./controllers/loader').controller,
+    controller = require('./controllers/loader').Controller,
     jxLoader = require('jxLoader/jxLoader').jxLoader,
     baseConfig = require('./configs/base').config,
     repoConfig = require('./configs/repos').config,
+    modules = require('../../system/modules'),
+    fs = require('fs'),
     loader = {};
 
 //use a closure so we don't pollute the global namespace
@@ -34,21 +36,30 @@ exports.init = function(db, router, domain){
 
     //initialize the loader controller
     controller.setModule(exports);
+    
+    //register media paths
+    //watch for moduleInitDone event for media so we can add our media path
+    var m = modules.isModuleReady('media', domain, true);
+    core.debug('isModuleReady returned', m);
+    if (m !== false) {
+        m.registerPath(fs.realpathSync(__dirname + '/media/'));
+    } else {
+        var fn = function(module){
+            var mod = modules.isModuleReady('media', domain, true);
+            if (mod !== false) {
+                mod.registerPath(fs.realpathSync(__dirname + '/media/'));
+                core.removeEvent('moduleInitDone', fn);
+            }
+        };
+        core.addEvent('moduleInitDone', fn);
+    }
     return true;
 };
 
 
-//also needs an activate method - used to activate the module after installation
-exports.activate = function(){
-
-};
-
-//and a deactivate method - removes anything we added to make the module not work anymore
-exports.deactivate = function(){
-
-    //call deinit
-    deinit();
-};
+/**
+ * Other methods exposed for others to use go here
+ */
 
 exports.addRepository = function(config, domain) {
     loader[domain].addRepository(config, domain);
@@ -63,13 +74,8 @@ exports.getLoader = function (domain) {
     } else {
         return false;
     }
-}
-/**
- * deinit undoes any initialization  (specifically the routing)
- */
-function deinit() {
-
 };
+
 
 /**
  * From here down are specific functions that this module will need
