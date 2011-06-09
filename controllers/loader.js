@@ -67,7 +67,7 @@ require('../models/loaderCache.model');
                     key = request.getParam('key',''),
                     isLoader = false,
                     included = null,
-                    db = request.domainObj.getDb(request.domain);
+                    db = request.domainObj.getDbOptions(request.domain);
 
                 core.debug('Type to load',type);
                 core.debug('files requested', files);
