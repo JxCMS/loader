@@ -1,11 +1,9 @@
 
-var mongoose = require('mongoose')
-    , Schema = mongoose.Schema;
+var Model = require('../system/model').Model;
 
-var cache = new Schema({
-    key: {type: String, index: true, required: true},
-    data: String
 
+exports.model = new Class({
+    
+    Extends: Model
+    
 });
-
-mongoose.model('loaderCache', cache);
