@@ -1,6 +1,6 @@
 
 exports.config = {
     'moveImages': true,
-    'imagePath': '/media/',
+    'imagePath': '/media/images/',
     'rewriteImageUrl': true
 };
